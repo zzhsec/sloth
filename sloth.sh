@@ -16,5 +16,5 @@ sort dns_$1.txt | uniq >> domain_$1.txt
 sort domain_$1.txt | uniq | puredns resolve -q -r resolvers.txt --write domain_$1.txt
 cat domain_$1.txt | httpx -ip -title -cname  -ports 80,443,8080,8443,7001,8081 -follow-host-redirects -location -no-color -random-agent -silent -web-server -status-code -tech-detect -o httpx-$1.txt
 awk '{print $1}' httpx-$1.txt > scanurl.txt
-nuclei -l  scanurl.txt -t nuclei-templates -eid http-missing-security-headers,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page -o nucleiscan_$1.txt
+nuclei -l  scanurl.txt -t nuclei-templates -eid http-missing-security-headers,nginx-status,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page -o nucleiscan_$1.txt
 zip -r -q ../$1.zip ./
