@@ -29,7 +29,7 @@ sort $outputpath/dns_$1.txt | uniq >> $outputpath/domain_$1.txt
 sort $outputpath/domain_$1.txt | uniq | puredns resolve -q -r $resolverspath --write $outputpath/domain_$1.txt
 # naabu
 echo "Start naabu"
-naabu -list $outputpath/domain_$1.txt -ec -tp 1000 -nmap-cli 'nmap -sV' -o $outputpath/portscan_$1.txt
+naabu -list $outputpath/domain_$1.txt -ec -tp 1000 -nmap-cli 'nmap -sV' -silent -o $outputpath/portscan_$1.txt
 # httpx
 echo "Start httpx"
 cat $outputpath/domain_$1.txt | httpx -ip -title -cname  -ports 80,443,8080,8443,7001,8081 -follow-host-redirects -location -no-color -random-agent -silent -web-server -status-code -tech-detect -o $outputpath/httpx-$1.txt
