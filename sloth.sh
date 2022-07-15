@@ -10,7 +10,7 @@ nucleiblack="openresty-detect,dns-waf-detect,cors-misconfig,options-method,txt-f
 mkdir $outputpath
 # subfinder
 echo "Start subfinder"
-subfinderpath -all -nc -silent -d $1 -o $outputpath/domain_$1.txt
+subfinder -all -nc -silent -d $1 -o $outputpath/domain_$1.txt
 # ctfr
 # git clone https://github.com/UnaPibaGeek/ctfr.git
 echo "Start ctfr"
