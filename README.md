@@ -4,6 +4,6 @@
 * subfinder
 * nuclei
 * ctfr
-* github-subdomains
+* naabu
 * puredns
 * httpx
