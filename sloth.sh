@@ -4,7 +4,7 @@ outputpath=/root/result/$1
 ctfrpath=./Tools/ctfr/ctfr.py
 dnsdicpath=./Config/alldns.txt
 resolverspath=./Config/resolvers.txt
-nucleiblack="openresty-detect,dns-waf-detect,cors-misconfig,options-method,txt-fingerprint,cname-fingerprint,email-extractor,addeventlistener-detect,http-missing-security-headers,deprecated-tls,nginx-status,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page,nameserver-fingerprint"
+nucleiblack="oob-header-based-interaction,detect-dns-over-https,request-based-interaction,openresty-detect,dns-waf-detect,cors-misconfig,options-method,txt-fingerprint,cname-fingerprint,email-extractor,addeventlistener-detect,http-missing-security-headers,deprecated-tls,nginx-status,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page,nameserver-fingerprint"
 
 mkdir $outputpath
 # subfinder
