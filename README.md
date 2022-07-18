@@ -5,5 +5,6 @@
 * nuclei
 * ctfr
 * naabu
+* subjack
 * puredns
 * httpx
