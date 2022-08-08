@@ -1,5 +1,6 @@
 echo "Target:" $1
 
+log4jscan=/root/autoscan/log4j-scan/log4j-scan.py
 outputpath=/root/result/$1
 ctfrpath=./Tools/ctfr/ctfr.py
 dnsdicpath=./Config/alldns.txt
@@ -44,6 +45,9 @@ echo "Start httpx"
 echo "=============================================================================="
 cat $outputpath/domain_$1.txt | httpx -ip -title -cname  -ports 80,443,8080,8443,7001,8081 -follow-host-redirects -location -no-color -random-agent -silent -web-server -status-code -tech-detect -o $outputpath/httpx-$1.txt
 awk '{print $1}' $outputpath/httpx-$1.txt > $outputpath/scanurl.txt
+# log4j scan
+# https://github.com/fullhunt/log4j-scan
+python3 $log4jscan -l $outputpath/scanurl.txt > $outputpath/log4jscan.log
 # nuclei
 echo "Start nuclei"
 echo "=============================================================================="
