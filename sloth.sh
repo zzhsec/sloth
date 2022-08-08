@@ -34,7 +34,7 @@ sort $outputpath/domain_$1.txt | uniq | puredns resolve -q -r $resolverspath --w
 # subjack
 echo "Start subjack"
 echo "=============================================================================="
-subjack -w $outputpath/domain_$1.txt -t 50 -timeout 30 -a -o subjack_$1.txt -ssl -c $fingerprintspath -v
+subjack -w $outputpath/domain_$1.txt -t 50 -timeout 30 -a -o $outputpath/subjack_$1.txt -ssl -c $fingerprintspath -v
 # naabu
 echo "Start naabu"
 echo "=============================================================================="
