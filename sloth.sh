@@ -6,7 +6,7 @@ ctfrpath=./Tools/ctfr/ctfr.py
 dnsdicpath=./Config/alldns.txt
 resolverspath=./Config/resolvers.txt
 fingerprintspath=/root/sloth/Config/fingerprints.json 
-nucleiblack="s3-detect,tomcat-detect,cname-service-detection,xss-deprecated-header-detect,iis-internal-ip-disclosure,mx-fingerprint,microsoft-iis-version,caa-fingerprint,oob-header-based-interaction,detect-dns-over-https,request-based-interaction,openresty-detect,dns-waf-detect,cors-misconfig,options-method,txt-fingerprint,cname-fingerprint,email-extractor,addeventlistener-detect,http-missing-security-headers,deprecated-tls,nginx-status,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page,nameserver-fingerprint"
+nucleiblack="aws-cloudfront-service,aws-bucket-service,s3-detect,tomcat-detect,cname-service-detection,xss-deprecated-header-detect,iis-internal-ip-disclosure,mx-fingerprint,microsoft-iis-version,caa-fingerprint,oob-header-based-interaction,detect-dns-over-https,request-based-interaction,openresty-detect,dns-waf-detect,cors-misconfig,options-method,txt-fingerprint,cname-fingerprint,email-extractor,addeventlistener-detect,http-missing-security-headers,deprecated-tls,nginx-status,apache-detect,ssl-dns-names,waf-detect,expired-ssl,HTTP-TRACE,tech-detect,tomcat-exposed-docs,tls-version,default-openresty,nginx-version,old-copyright,default-nginx-page,nameserver-fingerprint"
 
 mkdir $outputpath
 # subfinder
@@ -39,7 +39,7 @@ subjack -w $outputpath/domain_$1.txt -t 50 -timeout 30 -a -o $outputpath/subjack
 # naabu
 echo "Start naabu"
 echo "=============================================================================="
-naabu -list $outputpath/domain_$1.txt -ec -tp 1000 -nmap-cli "nmap -sV -oN $outputpath/$1_nmap.txt" -silent -o $outputpath/portscan_$1.txt
+naabu -list $outputpath/domain_$1.txt -ec -tp 1000 -silent -o $outputpath/portscan_$1.txt
 # httpx
 echo "Start httpx"
 echo "=============================================================================="
